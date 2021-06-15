@@ -1,0 +1,6 @@
+env/
+.vscode/
+__pycache__/
+sql_app.db
+alembic/
+gitlab-service-account.json

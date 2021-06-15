@@ -1,0 +1,10 @@
+image: google/cloud-sdk:alpine
+
+deploy:
+  stage: deploy
+  only:
+    - nothing
+  script:
+    - echo $SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
+    - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+    - gcloud --quiet --project thousand-times-313410 app deploy app.yaml
